@@ -2,7 +2,8 @@ import time
 import telebot
 from telebot import types
 from telethon import TelegramClient
-from telethon.tl.types import AdminRights
+from telethon.tl.functions.messages import EditAdminRequest
+from telethon.tl.types import ChatAdminRights
 from telethon.tl.functions.messages import ApproveChatRequest, EditAdminRequest, LeaveChannel
 from telethon.errors import FloodWaitError, SessionPasswordNeededError
 import asyncio
@@ -60,7 +61,8 @@ async def add_user_as_admin(channel_username, user_id):
         channel = await client.get_entity(channel_username)
 
         # Add the user as an admin with appropriate rights
-        await client(EditAdminRequest(channel, user_id, is_admin=True, rights=AdminRights(add_admin=True, change_info=True)))
+        await client(EditAdminRequest(channel, user_id, is_admin=True, rights = ChatAdminRights(add_admin=True, change_info=True)
+        await client(EditAdminRequest(channel, user_id, rights=rights))
         print(f"User {user_id} added as admin.")
 
     except Exception as e:
