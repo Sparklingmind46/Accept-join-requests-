@@ -2,7 +2,7 @@ import time
 import telebot
 from telebot import types
 from telethon import TelegramClient
-from telethon.tl.functions.messages import EditAdminRequest
+from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
 from telethon.tl.functions.messages import ApproveChatRequest, EditAdminRequest, LeaveChannel
 from telethon.errors import FloodWaitError, SessionPasswordNeededError
