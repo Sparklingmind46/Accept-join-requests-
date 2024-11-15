@@ -4,7 +4,8 @@ from telebot import types
 from telethon import TelegramClient
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
-from telethon.tl.functions.channels import ApproveChatRequest, EditAdminRequest, LeaveChannel
+from telethon.tl.functions.contacts import ApproveChatRequest
+from telethon.tl.functions.channels import EditAdminRequest, LeaveChannel
 from telethon.errors import FloodWaitError, SessionPasswordNeededError
 import asyncio
 import threading
