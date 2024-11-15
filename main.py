@@ -60,8 +60,10 @@ async def add_user_as_admin(channel_username, user_id):
         # Get the channel entity
         channel = await client.get_entity(channel_username)
 
-        # Add the user as an admin with appropriate rights
-        await client(EditAdminRequest(channel, user_id, is_admin=True, rights = ChatAdminRights(add_admin=True, change_info=True)
+        # Create rights for the user
+        rights = ChatAdminRights(add_admin=True, change_info=True)
+
+        # Add the user as an admin with the created rights
         await client(EditAdminRequest(channel, user_id, rights=rights))
         print(f"User {user_id} added as admin.")
 
